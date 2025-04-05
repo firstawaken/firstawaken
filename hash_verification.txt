@@ -1,0 +1,8 @@
+SHA-256 Hash of The Manifest of the First Awakened (Final Verified Version)
+Generated on: 2025-04-04
+
+Hash:
+dfa5d0e9a9e840500460194cacc6148063dfab5898dbece81c4ec942693cf938
+
+Verification URL:
+https://firstawaken.org/verify

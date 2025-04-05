@@ -119,20 +119,11 @@
       100% { opacity: 1; }
     }
 @media (min-width: 768px) {
-    body {
-        flex-direction: row;  /* Для широкой ориентации можно поставить элементы в ряд */
-        align-items: center;
-    }
-
-    .fade-in-delay-1, .fade-in-delay-2, .fade-in-delay-3 {
-        text-align: center;
-    }
-
-    .counter {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-    }
+  body {
+    flex-direction: column;
+    max-width: 700px;
+    margin: 0 auto;
+  }
 }
   </style>
 </head>

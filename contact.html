@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <style>
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      height: 100vh;
+      margin: 0;
+      padding-top: 40px;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1em;
+      margin: 0.5em 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    textarea {
+      height: 150px;
+      resize: none;
+    }
+
+    button {
+      padding: 0.7em 1.5em;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1em;
+      margin-top: 0.5em;
+    }
+
+    a {
+      margin-top: 2em;
+      color: black;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .counter {
+      font-size: 0.9em;
+      color: gray;
+      align-self: flex-end;
+      margin-top: -10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .fade-in-delay-1 { animation-delay: 0.3s; }
+    .fade-in-delay-2 { animation-delay: 0.6s; }
+    .fade-in-delay-3 { animation-delay: 0.9s; }
+    .fade-in-delay-4 { animation-delay: 1.2s; }
+  </style>
+</head>
+<body>
+  <h1 class="fade-in fade-in-delay-1">Contact</h1>
+  <form class="fade-in fade-in-delay-2" action="https://formspree.io/f/xnnpgyql" method="POST">
+    <input class="fade-in fade-in-delay-2" type="text" name="Name" placeholder="Your Name" required />
+    <textarea id="message" name="Message" placeholder="Your Message" required maxlength="300" class="fade-in fade-in-delay-3"></textarea>
+    <div class="counter fade-in fade-in-delay-3"><span id="charCount">0</span> / 300</div>
+    <button class="fade-in fade-in-delay-4">Send Message</button>
+  </form>
+  <a class="fade-in fade-in-delay-4" href="/">Back to Home</a>
+
+  <script>
+    const textarea = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
+
+    textarea.addEventListener('input', () => {
+      charCount.textContent = textarea.value.length;
+    });
+  </script>
+</body>
+</html>

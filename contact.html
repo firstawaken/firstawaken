@@ -101,10 +101,12 @@
   <a href="index.html">Back to Home</a>
 
   <script>
-    function updateCounter(textarea) {
-      const counter = document.getElementById('charCount');
-      counter.textContent = textarea.value.length;
-    }
-  </script>
+  const textarea = document.getElementById('message');
+  const charCount = document.getElementById('charCount');
+
+  textarea.addEventListener('input', () => {
+    charCount.textContent = `${textarea.value.length} / 300`;
+  });
+</script>
 </body>
 </html>

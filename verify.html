@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Verify the Manifest | First Awaken</title>
   <meta name="description" content="Cryptographically verify the authenticity of the Manifest of the First Awakened.">
-  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://firstawaken.org/verify" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"/>
   <style>
@@ -14,16 +13,14 @@
       font-family: 'JetBrains Mono', monospace;
       background-color: white;
       color: black;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0;
       padding: 2em;
       text-align: center;
     }
 
     main {
       max-width: 720px;
-      width: 100%;
+      margin: 0 auto;
     }
 
     h1, h2 {
@@ -59,16 +56,36 @@
       background-color: #fafafa;
       border-radius: 6px;
       transition: background-color 0.2s;
-      cursor: pointer;
     }
 
     .drop-zone:hover {
       background-color: #f0f0f0;
     }
 
+    .upload-button {
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .upload-button:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+    }
+
     .hash-output {
       margin-top: 1.5em;
       word-break: break-word;
+    }
+
+    input[type="file"] {
+      display: none;
     }
 
     a {
@@ -97,10 +114,6 @@
     .delay-5 { animation-delay: 1.5s; }
     .delay-6 { animation-delay: 1.8s; }
     .delay-7 { animation-delay: 2.1s; }
-
-    input[type="file"] {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -113,11 +126,13 @@
   <p class="fade-in delay-4"><code id="official-hash">dfa5d0e9a9e840500460194cacc6148063dfab5898dbece81c4ec942693cf938</code></p>
 
   <div class="drop-zone fade-in delay-5" id="drop-zone">
-    Drag & drop your PDF here or click to upload
+    Drag and drop your PDF file here
   </div>
+
+  <label class="upload-button fade-in delay-6" for="file-input">Or click to upload</label>
   <input type="file" id="file-input" accept=".pdf"/>
 
-  <div class="hash-output fade-in delay-6" id="result"></div>
+  <div class="hash-output fade-in delay-7" id="result"></div>
 
   <h2 class="fade-in delay-7">Manual Verification</h2>
   <ol class="fade-in delay-7">
@@ -129,19 +144,10 @@
 </main>
 
 <script>
-  async function computeSHA256(file) {
-    const arrayBuffer = await file.arrayBuffer();
-    const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
   const dropZone = document.getElementById('drop-zone');
   const fileInput = document.getElementById('file-input');
   const resultDiv = document.getElementById('result');
   const officialHash = document.getElementById('official-hash').textContent.trim();
-
-  dropZone.addEventListener('click', () => fileInput.click());
 
   fileInput.addEventListener('change', async (e) => {
     const file = e.target.files[0];
@@ -163,6 +169,13 @@
     const file = e.dataTransfer.files[0];
     if (file) handleFile(file);
   });
+
+  async function computeSHA256(file) {
+    const arrayBuffer = await file.arrayBuffer();
+    const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
 
   async function handleFile(file) {
     const hash = await computeSHA256(file);

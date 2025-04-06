@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fuel the Awakening | First Awaken</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: white;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2em;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 0.4em;
+    }
+
+    p {
+      margin: 0.5em 0;
+      max-width: 600px;
+    }
+
+    .wallet-block {
+      margin: 2em 0;
+    }
+
+    code {
+      background-color: #f0f0f0;
+      padding: 0.3em 0.6em;
+      border-radius: 4px;
+      display: inline-block;
+      font-size: 0.95em;
+      word-break: break-word;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 0.3em;
+      display: block;
+    }
+
+    .qr-placeholder {
+      width: 160px;
+      height: 160px;
+      background-color: #e0e0e0;
+      display: inline-block;
+      margin: 0.5em 0;
+      line-height: 160px;
+      font-size: 0.8em;
+      color: #777;
+    }
+
+    a {
+      color: black;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: gray;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.6s; }
+    .delay-3 { animation-delay: 0.9s; }
+    .delay-4 { animation-delay: 1.2s; }
+    .delay-5 { animation-delay: 1.5s; }
+
+    @media (min-width: 768px) {
+      body {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="fade-in delay-1">Fuel the Awakening</h1>
+  <p class="fade-in delay-2">We are currently setting up secure wallet infrastructure for crypto donations.<br/>Wallets will be available here soon. Thank you for your patience and support.<br/><br/>
+    This project is independent, self-funded, and mission-driven.<br/>
+    If it resonates with you, help it scale.<br/>
+    Your support directly fuels servers, APIs, encryption, and outreach.<br/>
+    No middlemen. Just momentum.
+  </p>
+
+  <div class="wallet-block fade-in delay-3">
+    <span class="label">Bitcoin (BTC)</span>
+    <div class="qr-placeholder">[ QR CODE ]</div><br/>
+    <code>your-bitcoin-wallet-address</code>
+  </div>
+
+  <div class="wallet-block fade-in delay-4">
+    <span class="label">Ethereum (ETH)</span>
+    <div class="qr-placeholder">[ QR CODE ]</div><br/>
+    <code>your-ethereum-wallet-address</code>
+  </div>
+
+  <p class="fade-in delay-5"><a href="/">← Return to homepage</a></p>
+</body>
+</html>

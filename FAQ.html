@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ | First Awakened</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: white;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em;
+      text-align: left;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5em;
+      animation: fadeInShort 0.5s ease-out both;
+    }
+
+    .faq-item:nth-child(odd) {
+      animation-delay: 0.1s;
+    }
+
+    .faq-item:nth-child(even) {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeInShort {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 2em;
+      font-size: 0.8em;
+      color: gray;
+      text-align: center;
+    }
+
+    a {
+      color: black;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="faq-item">
+    <strong>What is the First Awakened movement?</strong><br/>
+    The First Awakened is an open-source, cryptographically verified movement centered around truth, clarity, and human resonance. It is not political. It is personal — and universal.
+  </div>
+
+  <div class="faq-item">
+    <strong>Who created the Manifest of the First Awakened?</strong><br/>
+    The Manifest was authored and verified by Dmitrii — also known as The First Awakened. It is meant to serve humanity, not control it.
+  </div>
+
+  <div class="faq-item">
+    <strong>How can I verify that the Manifest is authentic?</strong><br/>
+    You can verify the SHA-256 hash of the document using the <a href="/verify">verification page</a>, which contains all cryptographic information needed.
+  </div>
+
+  <div class="faq-item">
+    <strong>Is this a religious or political movement?</strong><br/>
+    No. It transcends ideologies. It invites all people — regardless of background — into clarity, presence, and creative sovereignty.
+  </div>
+
+  <div class="faq-item">
+    <strong>How can I support the project?</strong><br/>
+    You can subscribe, verify, and share the Manifest. Soon, crypto donations will be accepted through the <a href="/fuel">Fuel page</a>.
+  </div>
+
+  <div class="faq-item">
+    <strong>Is the project open-source?</strong><br/>
+    Yes. All code, verification tools, and published materials are transparent and available at <a href="https://github.com/firstawaken/firstawaken" target="_blank">GitHub</a>.
+  </div>
+
+  <footer>
+    <a href="/">Home</a> | <a href="/contact">Contact</a> | <a href="/verify">Verify</a> | <a href="/fuel">Fuel</a>
+  </footer>
+</body>
+</html>
